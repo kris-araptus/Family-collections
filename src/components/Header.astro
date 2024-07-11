@@ -1,17 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 import PostFeed from '../components/PostFeed.astro';
-import { getPosts } from '../services/postServices';
-import { getCurrentUser } from '../services/authService';
+import { getPosts } from '../services/postService';
 
 const posts = await getPosts();
-const currentUser = await getCurrentUser();
+const currentUser = await getCurrentUser(); // Implement getCurrentUser function
+
 ---
 
 <Layout title="Family Social">
+  <Header currentUser={currentUser} />
   <main>
     <h1>Family Social</h1>
-    {currentUser && <a href="/create-post">Create New Post</a>}
     <PostFeed posts={posts} />
   </main>
 </Layout>

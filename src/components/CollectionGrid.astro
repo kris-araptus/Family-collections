@@ -1,0 +1,30 @@
+---
+import PostCard from './PostCard.astro';
+const { collections } = Astro.props;
+---
+
+<div class="collections-grid">
+  {collections.map((collection) => (
+    <div class="collection">
+      <h2>{collection.title}</h2>
+      <div class="collection-posts">
+        {collection.posts.slice(0, 4).map((post) => (
+          <PostCard post={post} />
+        ))}
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .collections-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .collection-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+</style>

@@ -1,0 +1,23 @@
+---
+const { user } = Astro.props;
+---
+
+<div class="user-profile">
+  <img src={user.profilePicture} alt={user.username} />
+  <h1>{user.username}</h1>
+  <p>{user.bio}</p>
+</div>
+
+<style>
+  .user-profile {
+    text-align: center;
+    padding: 2rem;
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+</style>

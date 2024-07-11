@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import UserProfile from '../../components/UserProfile.astro';
+import CollectionGrid from '../../components/CollectionGrid.astro';
+import { getUserProfile, getUserCollections } from '../../services/userService';
+
+const { username } = Astro.params;
+const user = await getUserProfile(username);
+const collections = await getUserCollections(username);
+
+if (!user) {
+  return Astro.redirect('/404');
+}
+---
+
+<Layout title={`${user.username}'s Profile`}>
+  <UserProfile user={user} />
+  <h2>Collections</h2>
+  <CollectionGrid collections={collections} />
+</Layout>
