@@ -1,20 +1,8 @@
-# Astro Starter Kit: Basics
+# Family Collections: A Private Social Media App
 
-```sh
-npm create astro@latest -- --template basics
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Family Collections is a private, family-oriented social media application built with Astro.js and SQLite. It allows family members to share posts, create collections, and interact in a secure, closed environment.
 
 ## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
 
 ```text
 /
@@ -22,33 +10,77 @@ Inside of your Astro project, you'll see the following folders and files:
 │   └── favicon.svg
 ├── src/
 │   ├── components/
-│   │   └── Card.astro
+│   │   ├── Card.astro
+│   │   ├── CollectionGrid.astro
+│   │   ├── CreatePostForm.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── PostCard.astro
+│   │   ├── PostFeed.astro
+│   │   └── UserProfile.astro
 │   ├── layouts/
 │   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── pages/
+│   │   ├── create-post.astro
+│   │   ├── index.astro
+│   │   ├── post/
+│   │   │   └── [id].astro
+│   │   └── profiles/
+│   │       └── [username].astro
+│   ├── services/
+│   │   ├── authService.ts
+│   │   ├── databaseService.ts
+│   │   ├── postServices.ts
+│   │   └── userServices.ts
+│   └── styles/
+│       └── global.css
+├── package.json
+└── tsconfig.json
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `npm install`          | Installs dependencies                            |
+| `npm run dev`          | Starts local dev server at `localhost:4321`      |
+| `npm run build`        | Build your production site to `./dist/`          |
+| `npm run preview`      | Preview your build locally, before deploying     |
+| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 🌟 Features
+
+- User authentication and profiles
+- Post creation with image uploads
+- Collections for organizing posts
+- Responsive design for various devices
+- Local SQLite database for data storage
+
+## 🛠️ Technologies Used
+
+- [Astro.js](https://astro.build/) for fast, modern web development
+- SQLite for local database storage
+- TypeScript for type-safe code
+- [Better-SQLite3](https://github.com/JoshuaWise/better-sqlite3) for database interactions
+
+## 🚀 Getting Started
+
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Run the development server with `npm run dev`
+4. Open `http://localhost:4321` in your browser
+
+## 📝 Notes
+
+- This app is designed for private use among family members.
+- Ensure proper security measures are in place before deploying to production.
+- The SQLite database file (`family_social.db`) is not included in version control.
 
 ## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [Astro documentation](https://docs.astro.build)
+- [SQLite documentation](https://www.sqlite.org/docs.html)
+- [TypeScript documentation](https://www.typescriptlang.org/docs/)
